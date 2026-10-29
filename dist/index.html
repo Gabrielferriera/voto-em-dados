@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0b1118" />
+    <title>Voto em Dados — Atlas eleitoral</title>
+    <meta
+      name="description"
+      content="Um atlas eleitoral em 3D para explorar os resultados do TSE, a mudança entre turnos e o peso de cada território."
+    />
+    <link rel="stylesheet" href="styles.css?v=atlas3-final" />
+  </head>
+  <body>
+    <a class="skip" href="#atlas">Pular para o atlas</a>
+    <aside class="rail">
+      <a class="brand-mark" href="#" aria-label="Voto em Dados, início"
+        ><svg viewBox="0 0 32 32" fill="none">
+          <path
+            d="m4 9 12-6 12 6-12 6L4 9Zm0 7 12 6 12-6M4 23l12 6 12-6"
+            stroke="currentColor"
+            stroke-width="2"
+          /></svg></a
+      ><a href="#atlas" class="rail-link" title="Atlas"
+        ><span>◈</span><small>Atlas</small></a
+      ><a href="#rio-lab" class="rail-link" title="Comparar territórios"
+        ><span>⇄</span><small>Comparar</small></a
+      ><a href="#social-context" class="rail-link" title="Contexto social"
+        ><span>∴</span><small>Contexto</small></a
+      ><a href="#analises" class="rail-link" title="Análises"
+        ><span>◷</span><small>Análises</small></a
+      ><a href="#dados" class="rail-link" title="Dados"
+        ><span>▤</span><small>Dados</small></a
+      ><a href="#metodo" class="rail-link rail-bottom" title="Método"
+        ><span>ⓘ</span><small>Método</small></a
+      >
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <a href="#" class="wordmark"
+          >voto<span>em</span>dados<span class="edition">ATLAS / 2026</span></a
+        >
+        <div class="top-right">
+          <span class="source-dot"></span><span>Dados TSE</span
+          ><span class="desktop-only">· Presidência · 1º → 2º turno</span
+          ><button
+            class="icon-button"
+            id="copy"
+            title="Copiar resumo com a fonte"
+            aria-label="Copiar resumo com a fonte"
+          >
+            ↗
+          </button>
+        </div>
+      </header>
+      <main>
+        <section class="intro">
+          <div>
+            <div class="eyebrow">CARTOGRAFIA DIGITAL / BRASIL</div>
+            <h1>O voto ocupa território<span>.</span></h1>
+            <p>Uma nova perspectiva sobre a mudança entre turnos.</p>
+          </div>
+          <div class="intro-actions">
+            <button id="focus-rj" class="button secondary">
+              Explorar Rio de Janeiro <span>↗</span></button
+            ><button id="presentation" class="button">
+              Modo apresentação <span>⛶</span>
+            </button>
+          </div>
+        </section>
+        <section class="story-entry" aria-label="Histórias guiadas">
+          <div class="eyebrow">COMECE POR UMA PERGUNTA / RIO DE JANEIRO</div>
+          <div class="story-options">
+            <button data-story="share">
+              <span>01</span> Ganhou votos, perdeu percentual? <b>↗</b></button
+            ><button data-story="margin">
+              <span>02</span> Quem mudou a diferença? <b>↗</b></button
+            ><button data-story="turnout">
+              <span>03</span> Onde a participação mudou? <b>↗</b>
+            </button>
+          </div>
+          <article
+            id="story-detail"
+            class="panel"
+            hidden
+            aria-live="polite"
+          ></article>
+        </section>
+        <section id="atlas" class="atlas-panel">
+          <nav
+            id="breadcrumbs"
+            class="breadcrumbs"
+            aria-label="Caminho do território"
+          ></nav>
+          <div class="atlas-toolbar">
+            <div class="location-filter">
+              <label class="sr-only" for="uf">Estado</label
+              ><select id="uf">
+                <option value="br">Brasil</option></select
+              ><span class="filter-separator">/</span
+              ><label class="sr-only" for="mun">Município</label
+              ><select id="mun">
+                <option value="">Todos os municípios</option>
+              </select>
+            </div>
+            <div class="segmented" role="group" aria-label="Dimensão do mapa">
+              <button id="view-3d" aria-pressed="true">3D</button
+              ><button id="view-2d" aria-pressed="false">2D</button
+              ><button id="view-weight" aria-pressed="false">
+                Peso eleitoral</button
+              ><button id="view-local" aria-pressed="false" hidden>
+                Locais
+              </button>
+            </div>
+          </div>
+          <div class="atlas-body">
+            <div class="map-stage">
+              <div class="map-topline">
+                <div>
+                  <span class="eyebrow" id="map-scope"
+                    >PERSPECTIVA TERRITORIAL</span
+                  >
+                  <h2 id="map-title">Brasil · estados</h2>
+                </div>
+                <button id="map-brasil" class="text-button">Brasil ↗</button>
+              </div>
+              <div
+                id="map-3d"
+                aria-label="Atlas tridimensional. Arraste para girar. Use a lista de territórios para navegação por teclado."
+              >
+                <canvas id="atlas-canvas" aria-hidden="true"></canvas>
+              </div>
+              <div id="map-drawing" hidden>
+                <svg
+                  id="election-map"
+                  role="group"
+                  aria-label="Mapa eleitoral acessível. Cada território é um botão."
+                ></svg>
+              </div>
+              <div id="map-tooltip" hidden></div>
+              <div id="map-labels" aria-hidden="true"></div>
+              <div class="map-bottom">
+                <div class="legend">
+                  <div class="legend-line">
+                    <span id="map-min"></span><span id="map-max"></span>
+                  </div>
+                  <div id="map-legend-bar"></div>
+                  <small id="height-caption"
+                    >Altura = magnitude do indicador · relevo estatístico, não
+                    físico</small
+                  >
+                </div>
+                <div class="map-zoom">
+                  <button id="map-plus" aria-label="Ampliar mapa">+</button
+                  ><button id="map-minus" aria-label="Reduzir mapa">−</button
+                  ><button id="map-reset" aria-label="Reenquadrar mapa">
+                    ⟲</button
+                  ><button
+                    id="map-orbit"
+                    aria-label="Ativar rotação automática"
+                    aria-pressed="false"
+                  >
+                    ⟳
+                  </button>
+                </div>
+              </div>
+              <p id="map-loading" role="status">Preparando cartografia…</p>
+            </div>
+            <aside class="inspector">
+              <div class="eyebrow">SEU RECORTE</div>
+              <h2 id="place">Brasil</h2>
+              <div class="map-controls">
+                <label for="map-candidate">Candidato</label
+                ><select id="map-candidate">
+                  <option value="13">Lula · PT</option>
+                  <option value="22">Flávio Bolsonaro · PL</option></select
+                ><label for="map-metric">O que o mapa mostra</label
+                ><select id="map-metric">
+                  <option value="delta">Variação de votos</option>
+                  <option value="pp">Variação em pontos percentuais</option>
+                  <option value="votes">Votos no 2º turno</option>
+                  <option value="share">% dos válidos no 2º turno</option>
+                  <option value="margin">
+                    Variação do saldo Lula − Flávio
+                  </option>
+                  <option value="turnout">Variação do comparecimento</option>
+                </select>
+              </div>
+              <div id="selected-stat" class="selected-stat"></div>
+              <div id="round-comparison"></div>
+              <div id="local-inspector" hidden></div>
+              <p id="map-detail" aria-live="polite">
+                Selecione um território no mapa.
+              </p>
+              <div class="inspector-footer">
+                <label class="export-format"
+                  >Formato da imagem
+                  <select id="export-format" aria-label="Formato da imagem">
+                    <option value="landscape">Horizontal</option>
+                    <option value="vertical">Vertical · 9:16</option>
+                  </select></label
+                >
+                <button id="snapshot" class="button secondary">
+                  Exportar imagem ↗
+                </button>
+                <p>
+                  Cor indica o valor; altura representa sua magnitude. Escala
+                  recalculada em cada recorte.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </section>
+        <div class="status-row">
+          <p id="status" role="status">Carregando dados…</p>
+          <a href="#metodo">Fontes e limites ↗</a>
+        </div>
+        <div class="cards" id="cards"></div>
+        <section id="rio-lab" class="section-block">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">LABORATÓRIO FLUMINENSE</div>
+              <h2>O Rio, em várias escalas.</h2>
+            </div>
+            <p>
+              Recortes territoriais documentados, resultados somados a partir
+              dos municípios.
+            </p>
+          </div>
+          <div class="region-pills" id="region-pills">
+            <button data-region="all">Estado inteiro</button
+            ><button data-region="capital">Capital</button
+            ><button data-region="baixada">Baixada Fluminense</button
+            ><button data-region="metropolitana">Região Metropolitana</button
+            ><button data-region="interior">Interior</button>
+          </div>
+          <p id="region-definition" class="fine-print" role="status">
+            Carregando definições territoriais…
+          </p>
+          <div class="panel polling-launch">
+            <div class="panel-kicker">ESCOLAS E LOCAIS DE VOTAÇÃO / TSE</div>
+            <h3>Chegue ao local de votação.</h3>
+            <p>
+              Resultados agregados por local. Os pontos indicam onde ficam os
+              locais de votação, sem identificar a residência ou a escolha de
+              qualquer pessoa.
+            </p>
+            <div class="polling-controls">
+              <label
+                >Município para consultar locais<select
+                  id="polling-municipality"
+                >
+                  <option value="">Selecione um município</option>
+                </select></label
+              ><button id="polling-open" class="button">
+                Abrir locais no mapa ↗
+              </button>
+            </div>
+            <p id="polling-status" class="fine-print" role="status">
+              Escolha um município para consultar a cobertura.
+            </p>
+            <details>
+              <summary>Consultar todos os locais do município</summary>
+              <div class="scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Local / zona</th>
+                      <th>Válidos · 1º</th>
+                      <th>Válidos · 2º</th>
+                      <th>Geometria</th>
+                    </tr>
+                  </thead>
+                  <tbody id="polling-table"></tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+          <div class="panel compare-panel">
+            <div class="panel-kicker">COMPARADOR DE TERRITÓRIOS</div>
+            <h3>Dois lugares. A mesma régua.</h3>
+            <p>
+              Selecione estados, municípios do estado em consulta ou recortes
+              fluminenses. Diferença entre finalistas = Lula menos Flávio.
+            </p>
+            <div class="compare-controls">
+              <label>Território A<select id="compare-a"></select></label
+              ><button id="compare-swap" aria-label="Inverter territórios">
+                ⇄</button
+              ><label>Território B<select id="compare-b"></select></label>
+            </div>
+            <div id="comparison" aria-live="polite"></div>
+            <div class="compare-actions">
+              <button id="compare-current" class="button secondary">
+                Usar recorte atual em A</button
+              ><button id="compare-csv" class="button secondary">
+                Baixar comparação CSV ↓
+              </button>
+            </div>
+            <details>
+              <summary>Fontes e composição dos recortes</summary>
+              <div id="compare-sources"></div>
+            </details>
+          </div>
+        </section>
+        <section id="social-context" class="section-block">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">TERRITÓRIO E CONTEXTO / CENSO 2022</div>
+              <h2>Enxergue além da votação.</h2>
+            </div>
+            <p>
+              Compare indicadores municipais do Censo com o resultado eleitoral
+              de 2026. Associação territorial não revela escolhas individuais.
+            </p>
+          </div>
+          <div class="panel context-panel">
+            <div class="context-controls">
+              <label
+                >Indicador do Censo<select id="context-indicator">
+                  <option value="population">População residente</option>
+                  <option value="literacy">
+                    Taxa de alfabetização · 15 anos ou mais
+                  </option>
+                  <option value="medianAge">Idade mediana</option>
+                  <option value="density">Densidade demográfica</option>
+                  <option value="area">Área territorial</option>
+                </select></label
+              ><label
+                >Resultado eleitoral<select id="context-election">
+                  <option value="share13">
+                    Lula · % dos válidos no 2º turno
+                  </option>
+                  <option value="share22">
+                    Flávio · % dos válidos no 2º turno
+                  </option>
+                  <option value="turnout">
+                    Comparecimento · % no 2º turno
+                  </option>
+                  <option value="change13">Lula · mudança em p.p.</option>
+                </select></label
+              ><label class="context-check"
+                ><input id="context-log" type="checkbox" />Escala logarítmica no
+                eixo horizontal</label
+              >
+            </div>
+            <p id="context-description"></p>
+            <svg
+              id="context-chart"
+              role="group"
+              aria-label="Relação entre contexto municipal e resultado eleitoral"
+            ></svg>
+            <p id="context-hover" aria-live="polite">
+              Selecione um ponto para consultar a localidade.
+            </p>
+            <div id="context-cards" class="context-cards"></div>
+            <details>
+              <summary>Consultar os dados e a metodologia</summary>
+              <p id="context-source"></p>
+              <p>
+                Cada ponto representa um município do RJ. Indicadores de 2022 e
+                resultados de 2026 têm datas diferentes. Correlação não
+                demonstra causa. Os indicadores não são atribuídos a eleitores,
+                bairros ou locais de votação. Recortes regionais podem se
+                sobrepor.
+              </p>
+              <div class="scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Município</th>
+                      <th id="context-table-indicator">Indicador</th>
+                      <th id="context-table-election">Resultado</th>
+                    </tr>
+                  </thead>
+                  <tbody id="context-table"></tbody>
+                </table>
+              </div>
+              <button id="context-csv" class="button secondary">
+                Baixar dados do cruzamento ↓
+              </button>
+            </details>
+          </div>
+        </section>
+        <section id="analises" class="section-block">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">ALÉM DO RESULTADO</div>
+              <h2>A anatomia da mudança.</h2>
+            </div>
+            <p id="analysis-scope">
+              Leituras calculadas sobre o recorte selecionado.
+            </p>
+          </div>
+          <div class="analysis-grid">
+            <article class="panel decomposition">
+              <div class="panel-kicker">01 / DECOMPOSIÇÃO</div>
+              <h3>De onde vem a variação?</h3>
+              <p>
+                Separe a mudança no volume de votos válidos da mudança na fatia
+                do candidato.
+              </p>
+              <div id="decomposition"></div>
+              <details>
+                <summary>Como calculamos</summary>
+                <p>
+                  Com V = total de válidos e s = fração do candidato, Δ(votos) =
+                  média(s) × ΔV + média(V) × Δs. A identidade é exata antes do
+                  arredondamento. É uma decomposição aritmética, sem inferir
+                  causa ou transferência de eleitores.
+                </p>
+              </details>
+            </article>
+            <article class="panel">
+              <div class="panel-kicker">02 / CONCENTRAÇÃO</div>
+              <h3>O peso dos territórios.</h3>
+              <div id="concentration"></div>
+              <div id="top-gains"></div>
+              <p class="fine-print">
+                Participação nos ganhos positivos do candidato entre os
+                territórios do mapa. Perdas são contabilizadas separadamente.
+              </p>
+            </article>
+            <article class="panel">
+              <div class="panel-kicker">03 / RECONFIGURAÇÃO</div>
+              <h3>Viradas entre finalistas.</h3>
+              <div id="switches"></div>
+              <p class="fine-print">
+                Compara quem liderou entre os dois finalistas em cada turno.
+                Empates ficam separados. Isso não identifica mudanças
+                individuais de voto.
+              </p>
+              <div id="participation"></div>
+            </article>
+          </div>
+        </section>
+        <section id="dados" class="section-block">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">ABRA OS NÚMEROS</div>
+              <h2>O detalhe faz diferença.</h2>
+            </div>
+            <button id="csv" class="button secondary">Baixar CSV ↓</button>
+          </div>
+          <div class="panel data-panel">
+            <div class="table-toolbar">
+              <label class="sr-only" for="search">Filtrar territórios</label
+              ><input
+                id="search"
+                placeholder="Buscar território…"
+                type="search"
+              /><label class="sr-only" for="sort">Ordenar territórios</label
+              ><select id="sort">
+                <option value="weight">Mais votos válidos</option>
+                <option value="name">Nome</option>
+                <option value="13">Maior aumento · Lula</option>
+                <option value="22">Maior aumento · Flávio</option>
+                <option value="loss">
+                  Maior redução · candidato escolhido
+                </option>
+              </select>
+            </div>
+            <div class="scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Território</th>
+                    <th>Lula · Δ votos</th>
+                    <th>Flávio · Δ votos</th>
+                    <th>Comparecimento · Δ</th>
+                  </tr>
+                </thead>
+                <tbody id="territories"></tbody>
+              </table>
+            </div>
+            <div class="pagination">
+              <span id="table-count"></span>
+              <div>
+                <button id="previous" aria-label="Página anterior">←</button
+                ><button id="next" aria-label="Próxima página">→</button>
+              </div>
+            </div>
+          </div>
+          <details class="panel table-details">
+            <summary>
+              Todos os candidatos
+              <span>Resultados completos dos dois turnos</span>
+            </summary>
+            <div class="scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Candidato</th>
+                    <th>1º turno</th>
+                    <th>2º turno</th>
+                    <th>Δ votos</th>
+                    <th>Δ p.p.</th>
+                  </tr>
+                </thead>
+                <tbody id="results"></tbody>
+              </table>
+            </div>
+          </details>
+          <details class="panel table-details">
+            <summary>
+              Participação e composição
+              <span>Válidos, brancos, nulos e abstenções</span>
+            </summary>
+            <div class="scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Indicador</th>
+                    <th>1º turno</th>
+                    <th>2º turno</th>
+                    <th>Variação</th>
+                  </tr>
+                </thead>
+                <tbody id="stats"></tbody>
+              </table>
+            </div>
+          </details>
+        </section>
+        <section id="metodo" class="section-block method">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">TRANSPARÊNCIA POR DESIGN</div>
+              <h2>Bonito por fora.<br />Verificável por dentro.</h2>
+            </div>
+            <p>
+              Resultados agregados mostram padrões territoriais. As conclusões
+              precisam respeitar o que a base permite medir.
+            </p>
+          </div>
+          <div class="method-grid">
+            <article>
+              <h3>Dados e cartografia</h3>
+              <p>
+                Presidência de 2026, 4 e 25 de outubro. Δ é segundo turno menos
+                primeiro. Percentuais são calculados sobre os válidos de cada
+                turno. A área dos polígonos representa território, não
+                eleitorado.
+              </p>
+              <p id="coverage"></p>
+              <p id="sources"></p>
+              <a
+                href="https://www.tse.jus.br/eleicoes/informacoes-tecnicas-sobre-a-divulgacao-de-resultados"
+                target="_blank"
+                rel="noopener"
+                >Documentação TSE · EA20 ↗</a
+              >
+              <p>
+                Limites:
+                <a
+                  href="https://github.com/henriquemalvar/br-geojson"
+                  target="_blank"
+                  rel="noopener"
+                  >BR GeoJSON / IBGE</a
+                >. Exterior nas tabelas, sem polígono.
+              </p>
+            </article>
+            <article>
+              <h3>17h–19h: dado não apurado aqui</h3>
+              <p>
+                A plataforma não contém contagem nacional de votos por horário.
+                Dado ausente não é zero. O resultado por candidato não revela a
+                escolha de quem votou nesse intervalo.
+              </p>
+              <p>
+                Esse estudo exige logs, correção de fusos e cobertura
+                documentada. Votos após as 17h também podem ser de pessoas já na
+                fila; não medem, sozinhos, o efeito da prorrogação.
+              </p>
+              <a
+                href="https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/esclarecimento-sobre-prorrogacao-da-votacao"
+                target="_blank"
+                rel="noopener"
+                >Esclarecimento oficial do TSE ↗</a
+              >
+            </article>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <a href="#" class="wordmark">voto<span>em</span>dados</a>
+        <p>
+          Cartografia por Gabriel Ferreira · Dados: TSE<br />Retrato estático da
+          coleta, sem atualização automática.
+        </p>
+        <a href="#atlas">Voltar ao atlas ↑</a>
+      </footer>
+    </div>
+    <div id="toast" role="status" hidden></div>
+    <dialog id="export-dialog" aria-labelledby="export-heading">
+      <header>
+        <h2 id="export-heading">Sua imagem está pronta</h2>
+        <button id="export-close" aria-label="Fechar prévia da imagem">
+          ×
+        </button>
+      </header>
+      <p>Confira fonte, escala e recorte antes de compartilhar.</p>
+      <img
+        id="export-preview"
+        alt="Prévia da imagem do atlas com fonte e escala"
+      /><a id="export-save" class="button" download>Baixar PNG ↓</a>
+    </dialog>
+    <script src="vendor/d3.min.js"></script>
+    <script src="map.js?v=atlas3-final"></script>
+    <script src="analytics.js?v=atlas3-final"></script>
+    <script src="app.js?v=atlas3-final"></script>
+    <script src="explorer.js?v=atlas3-final"></script>
+    <script src="polling.js?v=atlas3-final"></script>
+    <script type="module" src="atlas3d.js?v=atlas3-final"></script>
+  </body>
+</html>

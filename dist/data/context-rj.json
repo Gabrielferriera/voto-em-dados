@@ -1,0 +1,1555 @@
+{
+  "schemaVersion": 1,
+  "scope": "rj",
+  "year": 2022,
+  "indicators": {
+    "population": {
+      "label": "População residente",
+      "year": 2022,
+      "unit": "pessoas",
+      "definition": "População residente recenseada, todas as idades.",
+      "denominator": "Toda a população residente do município.",
+      "source": "https://sidra.ibge.gov.br/tabela/4714",
+      "apiSource": "https://apisidra.ibge.gov.br/values/t/4714/n6/in%20n3%2033/v/93,614,6318/p/2022",
+      "variable": "93",
+      "table": "4714",
+      "provider": "IBGE · Censo 2022"
+    },
+    "density": {
+      "label": "Densidade demográfica",
+      "year": 2022,
+      "unit": "hab/km²",
+      "definition": "População residente dividida pela área territorial, conforme publicação do IBGE.",
+      "denominator": "Área territorial do município em quilômetros quadrados.",
+      "source": "https://sidra.ibge.gov.br/tabela/4714",
+      "apiSource": "https://apisidra.ibge.gov.br/values/t/4714/n6/in%20n3%2033/v/93,614,6318/p/2022",
+      "variable": "614",
+      "table": "4714",
+      "provider": "IBGE · Censo 2022"
+    },
+    "area": {
+      "label": "Área da unidade territorial",
+      "year": 2022,
+      "unit": "km²",
+      "definition": "Área territorial utilizada na divulgação do Censo 2022.",
+      "denominator": null,
+      "source": "https://sidra.ibge.gov.br/tabela/4714",
+      "apiSource": "https://apisidra.ibge.gov.br/values/t/4714/n6/in%20n3%2033/v/93,614,6318/p/2022",
+      "variable": "6318",
+      "table": "4714",
+      "provider": "IBGE · Censo 2022"
+    },
+    "literacy": {
+      "label": "Alfabetização · 15 anos ou mais",
+      "year": 2022,
+      "unit": "%",
+      "definition": "Taxa de alfabetização das pessoas de 15 anos ou mais; sexo, cor ou raça e idade na categoria Total.",
+      "denominator": "Pessoas residentes de 15 anos ou mais de idade.",
+      "source": "https://sidra.ibge.gov.br/tabela/9543",
+      "apiSource": "https://apisidra.ibge.gov.br/values/t/9543/n6/in%20n3%2033/v/all/p/2022",
+      "variable": "2513",
+      "table": "9543",
+      "provider": "IBGE · Censo 2022"
+    },
+    "medianAge": {
+      "label": "Idade mediana",
+      "year": 2022,
+      "unit": "anos",
+      "definition": "Idade que divide a população residente em duas metades, conforme publicação do IBGE.",
+      "denominator": "Toda a população residente do município.",
+      "source": "https://sidra.ibge.gov.br/tabela/9515",
+      "apiSource": "https://apisidra.ibge.gov.br/values/t/9515/n6/in%20n3%2033/v/all/p/2022",
+      "variable": "10613",
+      "table": "9515",
+      "provider": "IBGE · Censo 2022"
+    }
+  },
+  "municipalities": [
+    {
+      "ibge": "3300100",
+      "name": "ANGRA DOS REIS",
+      "values": {
+        "population": 167434,
+        "density": 205.84,
+        "area": 813.42,
+        "literacy": 95.58,
+        "medianAge": 35
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300159",
+      "name": "APERIBÉ",
+      "values": {
+        "population": 11034,
+        "density": 116.71,
+        "area": 94.542,
+        "literacy": 93.66,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300209",
+      "name": "ARARUAMA",
+      "values": {
+        "population": 129671,
+        "density": 203.16,
+        "area": 638.276,
+        "literacy": 95.33,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300225",
+      "name": "AREAL",
+      "values": {
+        "population": 11828,
+        "density": 106.82,
+        "area": 110.724,
+        "literacy": 94.51,
+        "medianAge": 36
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300233",
+      "name": "ARMAÇÃO DOS BÚZIOS",
+      "values": {
+        "population": 40006,
+        "density": 563.65,
+        "area": 70.977,
+        "literacy": 97.21,
+        "medianAge": 36
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300258",
+      "name": "ARRAIAL DO CABO",
+      "values": {
+        "population": 30986,
+        "density": 203.71,
+        "area": 152.106,
+        "literacy": 96.82,
+        "medianAge": 38
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300308",
+      "name": "BARRA DO PIRAÍ",
+      "values": {
+        "population": 92883,
+        "density": 158.88,
+        "area": 584.61,
+        "literacy": 96.41,
+        "medianAge": 38
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300407",
+      "name": "BARRA MANSA",
+      "values": {
+        "population": 169894,
+        "density": 310.52,
+        "area": 547.133,
+        "literacy": 96.95,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300456",
+      "name": "BELFORD ROXO",
+      "values": {
+        "population": 483087,
+        "density": 6116.19,
+        "area": 78.985,
+        "literacy": 96.4,
+        "medianAge": 35
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3300506",
+      "name": "BOM JARDIM",
+      "values": {
+        "population": 28102,
+        "density": 73.48,
+        "area": 382.43,
+        "literacy": 92,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300605",
+      "name": "BOM JESUS DO ITABAPOANA",
+      "values": {
+        "population": 35173,
+        "density": 58.95,
+        "area": 596.659,
+        "literacy": 92.73,
+        "medianAge": 38
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300704",
+      "name": "CABO FRIO",
+      "values": {
+        "population": 222161,
+        "density": 537.34,
+        "area": 413.449,
+        "literacy": 96.66,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300803",
+      "name": "CACHOEIRAS DE MACACU",
+      "values": {
+        "population": 56943,
+        "density": 59.64,
+        "area": 954.749,
+        "literacy": 93.85,
+        "medianAge": 37
+      },
+      "groups": [
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3300902",
+      "name": "CAMBUCI",
+      "values": {
+        "population": 14616,
+        "density": 26.18,
+        "area": 558.281,
+        "literacy": 90.64,
+        "medianAge": 41
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3301009",
+      "name": "CAMPOS DOS GOYTACAZES",
+      "values": {
+        "population": 483540,
+        "density": 119.91,
+        "area": 4032.487,
+        "literacy": 95.06,
+        "medianAge": 35
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3301108",
+      "name": "CANTAGALO",
+      "values": {
+        "population": 19390,
+        "density": 25.95,
+        "area": 747.21,
+        "literacy": 93.11,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300936",
+      "name": "CARAPEBUS",
+      "values": {
+        "population": 13847,
+        "density": 45.42,
+        "area": 304.885,
+        "literacy": 93.71,
+        "medianAge": 36
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3301157",
+      "name": "CARDOSO MOREIRA",
+      "values": {
+        "population": 12958,
+        "density": 24.8,
+        "area": 522.596,
+        "literacy": 89.01,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3301207",
+      "name": "CARMO",
+      "values": {
+        "population": 17198,
+        "density": 56.25,
+        "area": 305.749,
+        "literacy": 93.78,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3301306",
+      "name": "CASIMIRO DE ABREU",
+      "values": {
+        "population": 46110,
+        "density": 99.61,
+        "area": 462.918,
+        "literacy": 95.57,
+        "medianAge": 36
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3300951",
+      "name": "COMENDADOR LEVY GASPARIAN",
+      "values": {
+        "population": 8741,
+        "density": 80.46,
+        "area": 108.639,
+        "literacy": 95.38,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3301405",
+      "name": "CONCEIÇÃO DE MACABU",
+      "values": {
+        "population": 21104,
+        "density": 62.39,
+        "area": 338.26,
+        "literacy": 92.45,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3301504",
+      "name": "CORDEIRO",
+      "values": {
+        "population": 20783,
+        "density": 183.84,
+        "area": 113.048,
+        "literacy": 95.73,
+        "medianAge": 38
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3301603",
+      "name": "DUAS BARRAS",
+      "values": {
+        "population": 10980,
+        "density": 28.92,
+        "area": 379.619,
+        "literacy": 89.58,
+        "medianAge": 38
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3301702",
+      "name": "DUQUE DE CAXIAS",
+      "values": {
+        "population": 808161,
+        "density": 1729.36,
+        "area": 467.319,
+        "literacy": 96.23,
+        "medianAge": 35
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3301801",
+      "name": "ENGENHEIRO PAULO DE FRONTIN",
+      "values": {
+        "population": 12242,
+        "density": 87.83,
+        "area": 139.381,
+        "literacy": 94.98,
+        "medianAge": 40
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3301850",
+      "name": "GUAPIMIRIM",
+      "values": {
+        "population": 51696,
+        "density": 144.22,
+        "area": 358.443,
+        "literacy": 95.21,
+        "medianAge": 35
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3301876",
+      "name": "IGUABA GRANDE",
+      "values": {
+        "population": 27920,
+        "density": 547.7,
+        "area": 50.977,
+        "literacy": 96.84,
+        "medianAge": 40
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3301900",
+      "name": "ITABORAÍ",
+      "values": {
+        "population": 224267,
+        "density": 521.6,
+        "area": 429.961,
+        "literacy": 94.85,
+        "medianAge": 37
+      },
+      "groups": [
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3302007",
+      "name": "ITAGUAÍ",
+      "values": {
+        "population": 116841,
+        "density": 413.44,
+        "area": 282.606,
+        "literacy": 95.84,
+        "medianAge": 34
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3302056",
+      "name": "ITALVA",
+      "values": {
+        "population": 14073,
+        "density": 48.33,
+        "area": 291.193,
+        "literacy": 91.11,
+        "medianAge": 41
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3302106",
+      "name": "ITAOCARA",
+      "values": {
+        "population": 22919,
+        "density": 52.91,
+        "area": 433.182,
+        "literacy": 92.26,
+        "medianAge": 41
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3302205",
+      "name": "ITAPERUNA",
+      "values": {
+        "population": 101041,
+        "density": 91.3,
+        "area": 1106.694,
+        "literacy": 94.01,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3302254",
+      "name": "ITATIAIA",
+      "values": {
+        "population": 30908,
+        "density": 128.23,
+        "area": 241.035,
+        "literacy": 95.81,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3302270",
+      "name": "JAPERI",
+      "values": {
+        "population": 96289,
+        "density": 1178.61,
+        "area": 81.697,
+        "literacy": 94.42,
+        "medianAge": 32
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3302304",
+      "name": "LAJE DO MURIAÉ",
+      "values": {
+        "population": 7336,
+        "density": 28.94,
+        "area": 253.53,
+        "literacy": 91.22,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3302403",
+      "name": "MACAÉ",
+      "values": {
+        "population": 246391,
+        "density": 202.46,
+        "area": 1216.989,
+        "literacy": 96.55,
+        "medianAge": 34
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3302452",
+      "name": "MACUCO",
+      "values": {
+        "population": 5415,
+        "density": 69.1,
+        "area": 78.364,
+        "literacy": 94.28,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3302502",
+      "name": "MAGÉ",
+      "values": {
+        "population": 228127,
+        "density": 583.78,
+        "area": 390.775,
+        "literacy": 95.52,
+        "medianAge": 35
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3302601",
+      "name": "MANGARATIBA",
+      "values": {
+        "population": 41220,
+        "density": 112.13,
+        "area": 367.606,
+        "literacy": 96.59,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3302700",
+      "name": "MARICÁ",
+      "values": {
+        "population": 197277,
+        "density": 545.61,
+        "area": 361.572,
+        "literacy": 97.34,
+        "medianAge": 39
+      },
+      "groups": [
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3302809",
+      "name": "MENDES",
+      "values": {
+        "population": 17502,
+        "density": 183.61,
+        "area": 95.324,
+        "literacy": 96.66,
+        "medianAge": 41
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3302858",
+      "name": "MESQUITA",
+      "values": {
+        "population": 167127,
+        "density": 4059.54,
+        "area": 41.169,
+        "literacy": 97.63,
+        "medianAge": 36
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3302908",
+      "name": "MIGUEL PEREIRA",
+      "values": {
+        "population": 26582,
+        "density": 92.32,
+        "area": 287.933,
+        "literacy": 95.93,
+        "medianAge": 41
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3303005",
+      "name": "MIRACEMA",
+      "values": {
+        "population": 26881,
+        "density": 88.64,
+        "area": 303.27,
+        "literacy": 92.69,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3303104",
+      "name": "NATIVIDADE",
+      "values": {
+        "population": 15074,
+        "density": 38.94,
+        "area": 387.073,
+        "literacy": 92.78,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3303203",
+      "name": "NILÓPOLIS",
+      "values": {
+        "population": 146774,
+        "density": 7568.4,
+        "area": 19.393,
+        "literacy": 98.08,
+        "medianAge": 39
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3303302",
+      "name": "NITERÓI",
+      "values": {
+        "population": 481749,
+        "density": 3601.67,
+        "area": 133.757,
+        "literacy": 98.23,
+        "medianAge": 41
+      },
+      "groups": [
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3303401",
+      "name": "NOVA FRIBURGO",
+      "values": {
+        "population": 189939,
+        "density": 203.05,
+        "area": 935.429,
+        "literacy": 96.39,
+        "medianAge": 40
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3303500",
+      "name": "NOVA IGUAÇU",
+      "values": {
+        "population": 785867,
+        "density": 1509.6,
+        "area": 520.581,
+        "literacy": 96.35,
+        "medianAge": 35
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3303609",
+      "name": "PARACAMBI",
+      "values": {
+        "population": 41375,
+        "density": 216.68,
+        "area": 190.949,
+        "literacy": 96.55,
+        "medianAge": 38
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3303807",
+      "name": "PARATY",
+      "values": {
+        "population": 45243,
+        "density": 48.95,
+        "area": 924.296,
+        "literacy": 95.29,
+        "medianAge": 35
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3303708",
+      "name": "PARAÍBA DO SUL",
+      "values": {
+        "population": 42063,
+        "density": 73.65,
+        "area": 571.118,
+        "literacy": 95.33,
+        "medianAge": 38
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3303856",
+      "name": "PATY DO ALFERES",
+      "values": {
+        "population": 29619,
+        "density": 94.23,
+        "area": 314.341,
+        "literacy": 91.21,
+        "medianAge": 36
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3303906",
+      "name": "PETRÓPOLIS",
+      "values": {
+        "population": 278881,
+        "density": 352.5,
+        "area": 791.144,
+        "literacy": 97.05,
+        "medianAge": 39
+      },
+      "groups": [
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3303955",
+      "name": "PINHEIRAL",
+      "values": {
+        "population": 24298,
+        "density": 295.4,
+        "area": 82.254,
+        "literacy": 96.34,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304003",
+      "name": "PIRAÍ",
+      "values": {
+        "population": 27474,
+        "density": 56.04,
+        "area": 490.255,
+        "literacy": 94.33,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304102",
+      "name": "PORCIÚNCULA",
+      "values": {
+        "population": 17288,
+        "density": 59.24,
+        "area": 291.847,
+        "literacy": 91.47,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304110",
+      "name": "PORTO REAL",
+      "values": {
+        "population": 20373,
+        "density": 400.32,
+        "area": 50.892,
+        "literacy": 95.88,
+        "medianAge": 35
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304128",
+      "name": "QUATIS",
+      "values": {
+        "population": 13682,
+        "density": 48.04,
+        "area": 284.826,
+        "literacy": 94.87,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304144",
+      "name": "QUEIMADOS",
+      "values": {
+        "population": 140523,
+        "density": 1850.76,
+        "area": 75.927,
+        "literacy": 96.24,
+        "medianAge": 34
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3304151",
+      "name": "QUISSAMÃ",
+      "values": {
+        "population": 22393,
+        "density": 31.12,
+        "area": 719.643,
+        "literacy": 92.61,
+        "medianAge": 35
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304201",
+      "name": "RESENDE",
+      "values": {
+        "population": 129612,
+        "density": 117.9,
+        "area": 1099.336,
+        "literacy": 96.76,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304300",
+      "name": "RIO BONITO",
+      "values": {
+        "population": 56276,
+        "density": 122.48,
+        "area": 459.458,
+        "literacy": 94.78,
+        "medianAge": 38
+      },
+      "groups": [
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3304409",
+      "name": "RIO CLARO",
+      "values": {
+        "population": 17401,
+        "density": 20.55,
+        "area": 846.797,
+        "literacy": 91.59,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304508",
+      "name": "RIO DAS FLORES",
+      "values": {
+        "population": 8954,
+        "density": 18.7,
+        "area": 478.783,
+        "literacy": 92.47,
+        "medianAge": 36
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304524",
+      "name": "RIO DAS OSTRAS",
+      "values": {
+        "population": 156491,
+        "density": 686.23,
+        "area": 228.044,
+        "literacy": 97.36,
+        "medianAge": 36
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304557",
+      "name": "RIO DE JANEIRO",
+      "values": {
+        "population": 6211223,
+        "density": 5174.6,
+        "area": 1200.329,
+        "literacy": 97.67,
+        "medianAge": 38
+      },
+      "groups": [
+        "capital",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3304607",
+      "name": "SANTA MARIA MADALENA",
+      "values": {
+        "population": 10232,
+        "density": 12.62,
+        "area": 810.963,
+        "literacy": 89.66,
+        "medianAge": 41
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304706",
+      "name": "SANTO ANTÔNIO DE PÁDUA",
+      "values": {
+        "population": 41325,
+        "density": 68.46,
+        "area": 603.633,
+        "literacy": 93.09,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3305406",
+      "name": "SAPUCAIA",
+      "values": {
+        "population": 17729,
+        "density": 32.79,
+        "area": 540.673,
+        "literacy": 91.83,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3305505",
+      "name": "SAQUAREMA",
+      "values": {
+        "population": 89559,
+        "density": 254.34,
+        "area": 352.13,
+        "literacy": 95.73,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3305554",
+      "name": "SEROPÉDICA",
+      "values": {
+        "population": 80596,
+        "density": 303.92,
+        "area": 265.189,
+        "literacy": 95.33,
+        "medianAge": 34
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3305604",
+      "name": "SILVA JARDIM",
+      "values": {
+        "population": 21352,
+        "density": 22.77,
+        "area": 937.755,
+        "literacy": 90.44,
+        "medianAge": 36
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3305703",
+      "name": "SUMIDOURO",
+      "values": {
+        "population": 15206,
+        "density": 36.78,
+        "area": 413.407,
+        "literacy": 88.25,
+        "medianAge": 36
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304805",
+      "name": "SÃO FIDÉLIS",
+      "values": {
+        "population": 38961,
+        "density": 37.65,
+        "area": 1034.833,
+        "literacy": 92.18,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304755",
+      "name": "SÃO FRANCISCO DE ITABAPOANA",
+      "values": {
+        "population": 45059,
+        "density": 40.3,
+        "area": 1118.037,
+        "literacy": 86.7,
+        "medianAge": 36
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3304904",
+      "name": "SÃO GONÇALO",
+      "values": {
+        "population": 896744,
+        "density": 3613.57,
+        "area": 248.16,
+        "literacy": 96.98,
+        "medianAge": 38
+      },
+      "groups": [
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3305133",
+      "name": "SÃO JOSÉ DE UBÁ",
+      "values": {
+        "population": 7070,
+        "density": 28.32,
+        "area": 249.688,
+        "literacy": 89.86,
+        "medianAge": 40
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3305158",
+      "name": "SÃO JOSÉ DO VALE DO RIO PRETO",
+      "values": {
+        "population": 22080,
+        "density": 100.28,
+        "area": 220.178,
+        "literacy": 93.61,
+        "medianAge": 35
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3305000",
+      "name": "SÃO JOÃO DA BARRA",
+      "values": {
+        "population": 36573,
+        "density": 80.84,
+        "area": 452.396,
+        "literacy": 94.31,
+        "medianAge": 38
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3305109",
+      "name": "SÃO JOÃO DE MERITI",
+      "values": {
+        "population": 440962,
+        "density": 12521.64,
+        "area": 35.216,
+        "literacy": 97.62,
+        "medianAge": 36
+      },
+      "groups": [
+        "baixada",
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3305208",
+      "name": "SÃO PEDRO DA ALDEIA",
+      "values": {
+        "population": 104029,
+        "density": 312.88,
+        "area": 332.488,
+        "literacy": 96.09,
+        "medianAge": 36
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3305307",
+      "name": "SÃO SEBASTIÃO DO ALTO",
+      "values": {
+        "population": 7750,
+        "density": 19.51,
+        "area": 397.214,
+        "literacy": 89.02,
+        "medianAge": 40
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3305752",
+      "name": "TANGUÁ",
+      "values": {
+        "population": 31086,
+        "density": 217.37,
+        "area": 143.007,
+        "literacy": 93.66,
+        "medianAge": 36
+      },
+      "groups": [
+        "metropolitana"
+      ]
+    },
+    {
+      "ibge": "3305802",
+      "name": "TERESÓPOLIS",
+      "values": {
+        "population": 165123,
+        "density": 213.52,
+        "area": 773.338,
+        "literacy": 95.07,
+        "medianAge": 38
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3305901",
+      "name": "TRAJANO DE MORAES",
+      "values": {
+        "population": 10302,
+        "density": 17.43,
+        "area": 591.151,
+        "literacy": 89.02,
+        "medianAge": 40
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3306008",
+      "name": "TRÊS RIOS",
+      "values": {
+        "population": 78346,
+        "density": 242.68,
+        "area": 322.843,
+        "literacy": 96.53,
+        "medianAge": 37
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3306107",
+      "name": "VALENÇA",
+      "values": {
+        "population": 68088,
+        "density": 52.34,
+        "area": 1300.767,
+        "literacy": 95.31,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3306156",
+      "name": "VARRE-SAI",
+      "values": {
+        "population": 10207,
+        "density": 50.55,
+        "area": 201.938,
+        "literacy": 89.76,
+        "medianAge": 34
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3306206",
+      "name": "VASSOURAS",
+      "values": {
+        "population": 33976,
+        "density": 63.38,
+        "area": 536.073,
+        "literacy": 94.54,
+        "medianAge": 38
+      },
+      "groups": [
+        "interior"
+      ]
+    },
+    {
+      "ibge": "3306305",
+      "name": "VOLTA REDONDA",
+      "values": {
+        "population": 261563,
+        "density": 1436.33,
+        "area": 182.105,
+        "literacy": 97.63,
+        "medianAge": 39
+      },
+      "groups": [
+        "interior"
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "id": "capital",
+      "name": "Capital",
+      "members": [
+        "3304557"
+      ],
+      "source": "https://integracaometropolitana.prefeitura.rio/conheca-a-secretaria/",
+      "definition": "Município do Rio de Janeiro. Recorte individual da plataforma."
+    },
+    {
+      "id": "baixada",
+      "name": "Baixada Fluminense",
+      "members": [
+        "3300456",
+        "3301702",
+        "3301850",
+        "3302007",
+        "3302270",
+        "3302502",
+        "3302858",
+        "3303203",
+        "3303500",
+        "3303609",
+        "3304144",
+        "3305109",
+        "3305554"
+      ],
+      "source": "https://www.cmdc.rj.gov.br/?page_id=2520",
+      "definition": "Recorte de 13 municípios listado pela Câmara Municipal de Duque de Caxias. Existem outras definições históricas/geográficas de Baixada; esta composição fica explícita."
+    },
+    {
+      "id": "metropolitana",
+      "name": "Região Metropolitana",
+      "members": [
+        "3300456",
+        "3300803",
+        "3301702",
+        "3301850",
+        "3301900",
+        "3302007",
+        "3302270",
+        "3302502",
+        "3302700",
+        "3302858",
+        "3303203",
+        "3303302",
+        "3303500",
+        "3303609",
+        "3303906",
+        "3304144",
+        "3304300",
+        "3304557",
+        "3304904",
+        "3305109",
+        "3305554",
+        "3305752"
+      ],
+      "source": "https://integracaometropolitana.prefeitura.rio/conheca-a-secretaria/",
+      "definition": "22 municípios listados pela Secretaria Especial de Integração Metropolitana da Prefeitura do Rio. Inclui capital e Baixada; os grupos se sobrepõem."
+    },
+    {
+      "id": "interior",
+      "name": "Interior · fora da RMRJ",
+      "members": [
+        "3300100",
+        "3300159",
+        "3300209",
+        "3300225",
+        "3300233",
+        "3300258",
+        "3300308",
+        "3300407",
+        "3300506",
+        "3300605",
+        "3300704",
+        "3300902",
+        "3300936",
+        "3300951",
+        "3301009",
+        "3301108",
+        "3301157",
+        "3301207",
+        "3301306",
+        "3301405",
+        "3301504",
+        "3301603",
+        "3301801",
+        "3301876",
+        "3302056",
+        "3302106",
+        "3302205",
+        "3302254",
+        "3302304",
+        "3302403",
+        "3302452",
+        "3302601",
+        "3302809",
+        "3302908",
+        "3303005",
+        "3303104",
+        "3303401",
+        "3303708",
+        "3303807",
+        "3303856",
+        "3303955",
+        "3304003",
+        "3304102",
+        "3304110",
+        "3304128",
+        "3304151",
+        "3304201",
+        "3304409",
+        "3304508",
+        "3304524",
+        "3304607",
+        "3304706",
+        "3304755",
+        "3304805",
+        "3305000",
+        "3305133",
+        "3305158",
+        "3305208",
+        "3305307",
+        "3305406",
+        "3305505",
+        "3305604",
+        "3305703",
+        "3305802",
+        "3305901",
+        "3306008",
+        "3306107",
+        "3306156",
+        "3306206",
+        "3306305"
+      ],
+      "source": "https://integracaometropolitana.prefeitura.rio/conheca-a-secretaria/",
+      "definition": "Recorte operacional da plataforma: 70 municípios do estado que não pertencem à composição de 22 municípios da RMRJ. Não é uma região administrativa oficial única."
+    }
+  ],
+  "sources": {
+    "population": {
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n6/in%20n3%2033/v/93,614,6318/p/2022",
+      "snapshot": "data/context-source/ibge-4714-rj-2022.json",
+      "sha256": "0173d2bdd050507cf6096211769df77cc1207df89ec36b4cf01daeee579defa4",
+      "fetchedAt": "2026-10-27T02:51:46.404193+00:00",
+      "year": 2022,
+      "provider": "IBGE · SIDRA · Censo Demográfico 2022"
+    },
+    "literacy": {
+      "url": "https://apisidra.ibge.gov.br/values/t/9543/n6/in%20n3%2033/v/all/p/2022",
+      "snapshot": "data/context-source/ibge-9543-rj-2022.json",
+      "sha256": "f2252c8178fa365117ff1c0918f3a98f62cd162c25d0dd2cee1c17f900cdf3a3",
+      "fetchedAt": "2026-10-27T02:51:46.312092+00:00",
+      "year": 2022,
+      "provider": "IBGE · SIDRA · Censo Demográfico 2022"
+    },
+    "age": {
+      "url": "https://apisidra.ibge.gov.br/values/t/9515/n6/in%20n3%2033/v/all/p/2022",
+      "snapshot": "data/context-source/ibge-9515-rj-2022.json",
+      "sha256": "83f0c017d2f514d0fe2daca58b1a05b876a21a73f7673b37da6d130d1a2747ed",
+      "fetchedAt": "2026-10-27T02:51:46.554348+00:00",
+      "year": 2022,
+      "provider": "IBGE · SIDRA · Censo Demográfico 2022"
+    }
+  },
+  "coverage": {
+    "expected": 92,
+    "joined": 92,
+    "byIndicator": {
+      "population": 92,
+      "density": 92,
+      "area": 92,
+      "literacy": 92,
+      "medianAge": 92
+    }
+  },
+  "notes": [
+    "Contexto social de 2022 e eleição de 2026: bases de anos diferentes, unidas pelo código IBGE municipal.",
+    "Indicadores descrevem territórios e populações agregadas. Associações não identificam escolhas individuais nem causas.",
+    "Taxas e medianas municipais não devem ser somadas nem agregadas por média simples. A plataforma mantém estes indicadores no nível municipal.",
+    "Capital e Baixada estão incluídas na Região Metropolitana. Não somar grupos sobrepostos.",
+    "Não contém renda, saneamento ou dados censitários por bairro/seção. Não estimar esses valores a partir dos indicadores presentes."
+  ]
+}

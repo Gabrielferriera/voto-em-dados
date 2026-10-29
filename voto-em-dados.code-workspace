@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/__pycache__": true
+    },
+    "search.exclude": {
+      "dist/data/raw/**": true,
+      "dist/codigo-fonte.zip": true
+    }
+  }
+}
