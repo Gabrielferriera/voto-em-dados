@@ -70,6 +70,14 @@ O módulo **Locais de votação** contém 5.034 locais do RJ com os dois turnos.
 
 A exportação de imagem tem prévia e formatos horizontal/vertical **1080 × 1920**, com fonte, recorte, indicador e escala. Links preservam UF, município, região e modo de visualização. A preferência de movimento reduzido continua respeitada.
 
+### Escalas comparáveis e história territorial
+
+No atlas, **Fixar escala entre territórios** usa o mesmo domínio para mapas de municípios, calculado sobre os 5.571 municípios da base. O mapa nacional usa outro domínio, calculado sobre as 27 UFs com geometria. A régua é específica do indicador e, quando pertinente, do candidato; porcentagens do segundo turno usam 0–100%. A mesma regra numérica vale para 2D e 3D, inclusive na seleção municipal. O modo dinâmico continua disponível. O parâmetro `escala=fixa` fica no link compartilhado e a legenda/exportação indica a régua utilizada. `node scripts/build_scale.cjs` recompõe `dist/data/scale-domains.json` a partir do retrato eleitoral; a verificação detecta domínios desatualizados.
+
+**Histórias em Dados / 01 — Baixada Fluminense** apresenta uma reportagem cartográfica interativa sobre o saldo entre os finalistas e o comparecimento em 13 municípios. O mapa e o ranking levam ao atlas, e a página explicita composição, fontes, fórmulas e limites. Os números são somados dos resultados municipais atuais do projeto; `scripts/check_story_baixada.cjs` confere os totais e o exemplo de Japeri. O conteúdo não deduz transferências individuais nem preferências a partir do comparecimento.
+
+O workflow público `.github/workflows/data-integrity.yml` executa `python scripts/check_all.py` em pushes e PRs. Toda segunda-feira e sob acionamento manual, `scripts/check_live_official.py` compara, em modo **somente leitura**, os totais nacionais e das UFs dos dois turnos com os arquivos correntes do TSE. Uma diferença reprova o workflow; não há atualização automática dos arquivos publicados, que exige revisão humana, nova coleta e novo deploy. A data exibida no site é a da coleta do retrato, não da última execução do workflow.
+
 ### Ficha territorial automática
 
 Selecione Brasil, uma UF, um município ou um recorte fluminense e use **Gerar ficha territorial** no painel do atlas. A ficha combina contorno geográfico, votos e percentuais dos dois finalistas, variação do saldo, comparecimento, válidos, brancos, nulos, abstenções, links oficiais do TSE, data da coleta e definições das taxas. Em municípios do RJ, inclui cinco indicadores do Censo 2022 com fonte específica de cada tabela do IBGE; para outros recortes, omite indicadores que não podem ser somados ou extrapolados corretamente. Use **Imprimir / salvar PDF** no navegador ou copie o link da consulta para compartilhar os filtros.

@@ -153,7 +153,9 @@
         const diverging = ["delta", "pp", "margin", "turnout"].includes(
             el("map-metric").value,
           ),
-          max = d3.max(vals.map(Math.abs)) || 1;
+          max = AtlasScale.max(window.atlasScaleDomains, el("scale-fixed").checked,
+            municipalView ? "mu" : "uf", el("map-metric").value,
+            el("map-candidate").value, vals);
         const scale = diverging
           ? d3
               .scaleLinear()
@@ -318,6 +320,9 @@
           : "linear-gradient(90deg,#203b47,#77dfc1)";
         el("map-min").textContent = value(diverging ? -max : 0);
         el("map-max").textContent = value(max);
+        el("scale-caption").textContent = el("scale-fixed").checked
+          ? `Escala fixa · ${municipalView ? "municípios do Brasil" : "27 UFs"} · mesma régua para este indicador`
+          : "Escala dinâmica · recorte atual";
         el("map-detail").textContent =
           municipalView && record.level === "mu"
             ? `${record.name} · ${value(measure(record))}`

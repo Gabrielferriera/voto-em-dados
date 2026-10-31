@@ -66,6 +66,7 @@ function updateURL() {
   if (window.atlasRegion) u.searchParams.set("regiao", window.atlasRegion.id);
   if (window.atlasMode && window.atlasMode !== "3d")
     u.searchParams.set("visao", window.atlasMode);
+  if ($("scale-fixed").checked) u.searchParams.set("escala", "fixa");
   history.replaceState(null, "", u);
 }
 function render(r) {
@@ -325,6 +326,7 @@ $("next").onclick = () => {
 };
 for (const id of ["map-candidate", "map-metric"])
   $(id).addEventListener("change", () => render(current));
+$("scale-fixed").addEventListener("change", () => render(current));
 $("focus-rj").onclick = () => {
   $("uf").value = "rj";
   loadState();
@@ -396,14 +398,18 @@ document.addEventListener("keydown", (e) => {
     window.dispatchEvent(new Event("resize"));
   }
 });
-fetch("data/overview.json")
-  .then((r) => {
-    if (!r.ok) throw Error("Base indisponível");
-    return r.json();
-  })
-  .then(async (d) => {
+Promise.all(["data/overview.json", "data/scale-domains.json"].map(async (path) => {
+  const response = await fetch(path);
+  if (!response.ok) throw Error("Base ou escala indisponível");
+  return response.json();
+}))
+  .then(async ([d, domains]) => {
+    if (domains.sourceSnapshot !== d.fetchedAt)
+      throw Error("Escala fixa incompatível com a versão dos dados");
     data = d;
     window.atlasData = d;
+    window.atlasScaleDomains = domains;
+    $("scale-fixed").disabled = false;
     d.states.forEach((r) => {
       const o = document.createElement("option");
       o.value = r.uf;
@@ -412,6 +418,7 @@ fetch("data/overview.json")
     });
     const params = new URLSearchParams(location.search);
     window.atlasInitialParameters = Object.fromEntries(params);
+    $("scale-fixed").checked = params.get("escala") === "fixa";
     if (["13", "22"].includes(params.get("candidato")))
       $("map-candidate").value = params.get("candidato");
     if (

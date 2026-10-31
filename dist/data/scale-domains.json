@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "sourceSnapshot": "2026-10-26T19:11:36.380765+00:00",
+  "method": "Máximo absoluto por indicador e granularidade; porcentagem dos válidos: 0–100%. Exterior sem geometria.",
+  "scope": {
+    "uf": 27,
+    "mu": 5571
+  },
+  "levels": {
+    "uf": {
+      "delta:13": 2613861,
+      "delta:22": 1217155,
+      "pp:13": 9.276879263856102,
+      "pp:22": 6.059644917120921,
+      "votes:13": 12119274,
+      "votes:22": 14139178,
+      "share:13": 100,
+      "share:22": 100,
+      "margin": 1396706,
+      "turnout": 932397
+    },
+    "mu": {
+      "delta:13": 812005,
+      "delta:22": 337176,
+      "pp:13": 22.10332248167437,
+      "pp:22": 13.731020262822602,
+      "votes:13": 3864354,
+      "votes:22": 3097923,
+      "share:13": 100,
+      "share:22": 100,
+      "margin": 474829,
+      "turnout": 277660
+    }
+  }
+}

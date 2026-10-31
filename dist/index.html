@@ -9,7 +9,7 @@
       name="description"
       content="Um atlas eleitoral em 3D para explorar os resultados do TSE, a mudança entre turnos e o peso de cada território."
     />
-    <link rel="stylesheet" href="styles.css?v=atlas3-final" />
+    <link rel="stylesheet" href="styles.css?v=atlas4-story" />
   </head>
   <body>
     <a class="skip" href="#atlas">Pular para o atlas</a>
@@ -79,6 +79,7 @@
               <span>03</span> Onde a participação mudou? <b>↗</b>
             </button>
           </div>
+          <a class="story-long-link" href="#historia-baixada"><span>REPORTAGEM TERRITORIAL / 01</span><strong>A vantagem encolheu na Baixada, município por município.</strong><b>Explorar a história ↗</b></a>
           <article
             id="story-detail"
             class="panel"
@@ -145,6 +146,7 @@
                     <span id="map-min"></span><span id="map-max"></span>
                   </div>
                   <div id="map-legend-bar"></div>
+                  <small id="scale-caption">Escala dinâmica · recorte atual</small>
                   <small id="height-caption"
                     >Altura = magnitude do indicador · relevo estatístico, não
                     físico</small
@@ -189,6 +191,10 @@
               <div id="selected-stat" class="selected-stat"></div>
               <div id="round-comparison"></div>
               <div id="local-inspector" hidden></div>
+              <label class="scale-control" for="scale-fixed">
+                <input type="checkbox" id="scale-fixed" disabled />
+                <span><strong>Fixar escala entre territórios</strong><small>Mesma régua para mapas de municípios; UFs usam outra régua. A escala vale para o indicador e candidato escolhidos.</small></span>
+              </label>
               <p id="map-detail" aria-live="polite">
                 Selecione um território no mapa.
               </p>
@@ -206,10 +212,7 @@
                 <button id="report-open" class="button secondary" disabled>
                   Gerar ficha territorial ↗
                 </button>
-                <p>
-                  Cor indica o valor; altura representa sua magnitude. Escala
-                  recalculada em cada recorte.
-                </p>
+                <p>Cor indica o valor; altura representa sua magnitude. Confira a régua na legenda antes de comparar.</p>
               </div>
             </aside>
           </div>
@@ -305,6 +308,45 @@
               <div id="compare-sources"></div>
             </details>
           </div>
+        </section>
+        <section id="historia-baixada" class="section-block story-feature" aria-labelledby="baixada-title">
+          <div class="story-feature-head">
+            <div class="eyebrow">HISTÓRIAS EM DADOS / 01 · BAIXADA FLUMINENSE</div>
+            <h2 id="baixada-title">A diferença encolheu.<br><em>O território conta como.</em></h2>
+            <p>Uma leitura dos dois turnos presidenciais de 2026 nos 13 municípios deste recorte da Baixada. Números calculados a partir dos resultados municipais do TSE.</p>
+          </div>
+          <div id="baixada-summary" class="baixada-summary" aria-live="polite">
+            <p>Preparando análise territorial…</p>
+          </div>
+          <div class="baixada-body">
+            <div>
+              <div class="panel-kicker">01 / CARTOGRAFIA DA MUDANÇA</div>
+              <h3>Treze municípios, pesos diferentes.</h3>
+              <p>Selecione um contorno ou uma linha do ranking para abrir o município no atlas. A cor do mapa mostra a mudança do saldo Lula − Flávio.</p>
+              <svg id="baixada-map" viewBox="0 0 560 340" role="group" aria-label="Municípios da Baixada Fluminense; selecione para abrir no atlas"></svg>
+              <p id="baixada-map-legend" class="fine-print"></p>
+            </div>
+            <div>
+              <div class="panel-kicker">02 / INVESTIGAÇÃO</div>
+              <h3>Compare duas medidas.</h3>
+              <div class="baixada-toggle" role="group" aria-label="Indicador da história">
+                <button type="button" data-baixada-metric="margin" aria-pressed="true">Mudança do saldo</button>
+                <button type="button" data-baixada-metric="turnout" aria-pressed="false">Comparecimento</button>
+              </div>
+              <p id="baixada-ranking-note" class="fine-print"></p>
+              <ol id="baixada-ranking" class="baixada-ranking"></ol>
+            </div>
+          </div>
+          <div class="baixada-conclusion">
+            <div class="panel-kicker">03 / O QUE OS DADOS PERMITEM DIZER</div>
+            <p id="baixada-reading"></p>
+            <p class="fine-print">O saldo compara totais agregados dos dois finalistas. O comparecimento não revela em quem votaram as pessoas que participaram em cada turno. Um local de votação não identifica o endereço de seus eleitores.</p>
+            <a id="baixada-atlas-link" class="button" href="?uf=rj&regiao=baixada&indicador=margin&escala=fixa#atlas">Investigar a Baixada no atlas ↗</a>
+          </div>
+          <details class="baixada-method">
+            <summary>Fontes, composição e contas desta história</summary>
+            <div id="baixada-sources"></div>
+          </details>
         </section>
         <section id="social-context" class="section-block">
           <div class="section-heading">
@@ -545,6 +587,7 @@
                 eleitorado.
               </p>
               <p id="coverage"></p>
+              <p>Os resultados publicados são um retrato estático. <a href="https://github.com/Gabrielferriera/voto-em-dados/actions/workflows/data-integrity.yml" target="_blank" rel="noopener">Conferências automáticas do projeto ↗</a> testam as somas da base; uma verificação periódica compara os totais oficiais. A data da coleta acima não é a data da última conferência.</p>
               <p id="sources"></p>
               <a
                 href="https://www.tse.jus.br/eleicoes/informacoes-tecnicas-sobre-a-divulgacao-de-resultados"
@@ -620,13 +663,16 @@
       </div>
     </dialog>
     <script src="vendor/d3.min.js"></script>
-    <script src="map.js?v=atlas3-final"></script>
+    <script src="map.js?v=atlas4-story"></script>
     <script src="analytics.js?v=atlas3-final"></script>
+    <script src="scale.js?v=scale-1"></script>
     <script src="report-model.js?v=report-1"></script>
     <script src="report.js?v=report-1"></script>
-    <script src="app.js?v=atlas3-final"></script>
+    <script src="app.js?v=atlas4-story"></script>
     <script src="explorer.js?v=atlas3-final"></script>
     <script src="polling.js?v=atlas3-final"></script>
-    <script type="module" src="atlas3d.js?v=atlas3-final"></script>
+    <script src="story-baixada-model.js?v=story-1"></script>
+    <script src="story-baixada.js?v=story-1"></script>
+    <script type="module" src="atlas3d.js?v=atlas4-story"></script>
   </body>
 </html>

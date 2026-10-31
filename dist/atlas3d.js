@@ -346,7 +346,9 @@ window.drawAtlas = async function (r) {
       features: features.map((x) => x.feature),
     };
     const vals = features.filter((x) => x.record).map((x) => measure(x.record)),
-      max = Math.max(1, ...vals.map(Math.abs)),
+      max = AtlasScale.max(window.atlasScaleDomains, $("scale-fixed").checked,
+        municipal ? "mu" : "uf", $("map-metric").value,
+        $("map-candidate").value, vals),
       diverging = ["delta", "pp", "margin", "turnout"].includes(
         $("map-metric").value,
       ),
@@ -452,6 +454,9 @@ window.drawAtlas = async function (r) {
             : "Brasil · estados";
       $("map-min").textContent = value(diverging ? -max : 0);
       $("map-max").textContent = value(max);
+      $("scale-caption").textContent = $("scale-fixed").checked
+        ? `Escala fixa · ${municipal ? "municípios do Brasil" : "27 UFs"} · mesma régua para este indicador`
+        : "Escala dinâmica · recorte atual";
       $("map-legend-bar").style.background = diverging
         ? "linear-gradient(90deg,#ed967f,#314650,#77dfc1)"
         : "linear-gradient(90deg,#203b47,#77dfc1)";
@@ -759,8 +764,8 @@ $("snapshot").onclick = async () => {
       ["weight", "local"].includes(window.atlasMode)
         ? $("height-caption").textContent
         : active
-          ? "Altura = magnitude do indicador. Relevo estatístico. Escala relativa ao recorte."
-          : "Mapa 2D · escala relativa ao recorte.",
+          ? `Altura = magnitude do indicador. Relevo estatístico. Escala ${$("scale-fixed").checked ? "fixa entre territórios da mesma granularidade" : "relativa ao recorte"}.`
+          : `Mapa 2D · escala ${$("scale-fixed").checked ? "fixa entre territórios da mesma granularidade" : "relativa ao recorte"}.`,
       pad,
       foot + (vertical ? 205 : 88),
       maxW,
