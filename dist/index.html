@@ -203,6 +203,9 @@
                 <button id="snapshot" class="button secondary">
                   Exportar imagem ↗
                 </button>
+                <button id="report-open" class="button secondary" disabled>
+                  Gerar ficha territorial ↗
+                </button>
                 <p>
                   Cor indica o valor; altura representa sua magnitude. Escala
                   recalculada em cada recorte.
@@ -604,9 +607,23 @@
         alt="Prévia da imagem do atlas com fonte e escala"
       /><a id="export-save" class="button" download>Baixar PNG ↓</a>
     </dialog>
+    <dialog id="report-dialog" aria-labelledby="report-heading">
+      <div class="report-actions">
+        <button id="report-close" class="button secondary">Fechar</button>
+        <button id="report-print" class="button">Imprimir / salvar PDF ↗</button>
+      </div>
+      <div id="report-body" class="report-sheet"></div>
+      <div class="report-share">
+        <label for="report-link">Link desta consulta</label>
+        <input id="report-link" readonly />
+        <button id="report-copy" class="button secondary">Copiar link</button>
+      </div>
+    </dialog>
     <script src="vendor/d3.min.js"></script>
     <script src="map.js?v=atlas3-final"></script>
     <script src="analytics.js?v=atlas3-final"></script>
+    <script src="report-model.js?v=report-1"></script>
+    <script src="report.js?v=report-1"></script>
     <script src="app.js?v=atlas3-final"></script>
     <script src="explorer.js?v=atlas3-final"></script>
     <script src="polling.js?v=atlas3-final"></script>

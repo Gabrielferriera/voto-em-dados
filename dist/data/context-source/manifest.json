@@ -2,7 +2,7 @@
   "population": {
     "url": "https://apisidra.ibge.gov.br/values/t/4714/n6/in%20n3%2033/v/93,614,6318/p/2022",
     "snapshot": "data/context-source/ibge-4714-rj-2022.json",
-    "sha256": "0173d2bdd050507cf6096211769df77cc1207df89ec36b4cf01daeee579defa4",
+    "sha256": "6443ce4b2ae3ea2cbdd31238097ac0cbf6c55cbb5efccec4aa1b9ab4c4408157",
     "fetchedAt": "2026-10-27T02:51:46.404193+00:00",
     "year": 2022,
     "provider": "IBGE · SIDRA · Censo Demográfico 2022"
@@ -10,7 +10,7 @@
   "literacy": {
     "url": "https://apisidra.ibge.gov.br/values/t/9543/n6/in%20n3%2033/v/all/p/2022",
     "snapshot": "data/context-source/ibge-9543-rj-2022.json",
-    "sha256": "f2252c8178fa365117ff1c0918f3a98f62cd162c25d0dd2cee1c17f900cdf3a3",
+    "sha256": "c260244103c274972620366fa130ef5ce5445b983a8c2adc1ecff878e2b517a0",
     "fetchedAt": "2026-10-27T02:51:46.312092+00:00",
     "year": 2022,
     "provider": "IBGE · SIDRA · Censo Demográfico 2022"
@@ -18,7 +18,7 @@
   "age": {
     "url": "https://apisidra.ibge.gov.br/values/t/9515/n6/in%20n3%2033/v/all/p/2022",
     "snapshot": "data/context-source/ibge-9515-rj-2022.json",
-    "sha256": "83f0c017d2f514d0fe2daca58b1a05b876a21a73f7673b37da6d130d1a2747ed",
+    "sha256": "54995262f53841b679634bb7e5a15dd4537c643654027e7028f841ec7af7bd15",
     "fetchedAt": "2026-10-27T02:51:46.554348+00:00",
     "year": 2022,
     "provider": "IBGE · SIDRA · Censo Demográfico 2022"

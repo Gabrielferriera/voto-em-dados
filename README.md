@@ -70,6 +70,12 @@ O módulo **Locais de votação** contém 5.034 locais do RJ com os dois turnos.
 
 A exportação de imagem tem prévia e formatos horizontal/vertical **1080 × 1920**, com fonte, recorte, indicador e escala. Links preservam UF, município, região e modo de visualização. A preferência de movimento reduzido continua respeitada.
 
+### Ficha territorial automática
+
+Selecione Brasil, uma UF, um município ou um recorte fluminense e use **Gerar ficha territorial** no painel do atlas. A ficha combina contorno geográfico, votos e percentuais dos dois finalistas, variação do saldo, comparecimento, válidos, brancos, nulos, abstenções, links oficiais do TSE, data da coleta e definições das taxas. Em municípios do RJ, inclui cinco indicadores do Censo 2022 com fonte específica de cada tabela do IBGE; para outros recortes, omite indicadores que não podem ser somados ou extrapolados corretamente. Use **Imprimir / salvar PDF** no navegador ou copie o link da consulta para compartilhar os filtros.
+
+O mapa é um contorno territorial, não uma distribuição de votos dentro do município. A ficha compara totais agregados e não identifica transferência de votos entre indivíduos nem votos por horário. `dist/report-model.js` concentra as fórmulas; `scripts/check_report.cjs` verifica um município conhecido e a consistência de todos os 92 municípios do RJ. Os resultados publicados são o retrato da coleta indicado na própria ficha, sem atualização automática.
+
 ### Código e verificações adicionais
 
 - `dist/explorer.js`: comparação, recortes, histórias e contexto social.

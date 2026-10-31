@@ -8,6 +8,7 @@ checks = [
     ['node', 'scripts/check_geometry.cjs'],
     ['node', 'scripts/check_analytics.cjs'],
     ['node', 'scripts/check_explorer.cjs'],
+    ['node', 'scripts/check_report.cjs'],
     [sys.executable, 'scripts/check_context.py'],
     [sys.executable, 'scripts/check_polling_rj.py'],
 ]
